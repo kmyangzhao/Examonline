@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!-- 页面样式 -->
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    <!-- bootstrap/css样式 --> 
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	
+	
+</head>
+
+
+<body>
+   <div id="tabBlock">
+   <!-- 选项卡菜单项  -->
+     <ul id="logRegTab" class="nav nav-tabs" role="tablist">
+      <li class="active">
+        <a href="#login" role="tab" data-toggle="tab">登录</a> 
+      </li>
+      <li>
+        <a href="#findPwd" role="tab" data-toggle="tab">找回密码</a>
+      </li>    
+    </ul>
+    
+    <!-- 选项卡面板  -->
+    <div id="logRegFinTabContent" class="tab-content">
+      <!-- 登录面板 -->
+      <div class="tab-pane fade in active" id="login">
+        <form action="#" class="form-horizontal" role="form">
+          <div class="form-group" >
+            <label for="logUsername" class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-7">
+             <input type="text" class="form-control" id="logUsername" placeholder="请输入用户名">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="logPsw" class="col-sm-3 control-label">密码</label>
+            <div class="col-sm-7">
+             <input type="password" class="form-control" id="logPsw" placeholder="请输入密码">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="logVerify" class="col-sm-3 control-label">验证码</label>
+            <div class="col-sm-4">
+             <input type="text" class="form-control" required name="codevalidate" id="logVerify" placeholder="请输入验证码">
+            </div>
+            <div class="col-sm-5">
+              <!-- 放验证码图片的位置 -->
+               <img id="codevalidate" width="90" height="33">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-5">
+              <button type="button" class="btn btn-info" onclick="login()">立即登录</button>
+            </div>
+            <div class="col-sm-4">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="remBox">记住密码
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- 找回密码面板 -->
+      <div class="tab-pane fade" id="findPwd">
+        <form action="#" class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="findUsername" class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="findUsername">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="findPswquestion" class="col-sm-3 control-label">提示问题</label>
+            <div class="col-sm-7">
+              <select class="form-control" id="findPswquestion" name="findPswquestion">
+                
+              </select>
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="findPswanswer" class="col-sm-3 control-label">提示答案 </label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="findPswanswer">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPsw" class="col-sm-3 control-label">新密码</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="newPsw">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="findAffirm" class="col-sm-3 control-label">确认密码</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="findAffirm">
+            </div>
+            <div class="col-sm-2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="findVerify" class="col-sm-3 control-label">验证码</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="findVerify">
+            </div>
+            <div class="col-sm-5">
+               <!-- 放验证码图片的位置 -->
+               <img id="findCodeValidate" width="90" height="33">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-5">
+              <button id="btnFind" type="button" class="btn btn-info" onclick="findPwd()">找回密码</button>
+            </div>
+            <div class="col-sm-4">
+               <a href="pages/ModifyPassword.jsp" style="margin-top:9px; cursor:pointer; display:block;">忘记密保答案？</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+   </div>
+       
+    <script type="text/javascript" src="/static/js/jQuery/jquery-1.10.2.js"></script>
+    
+</body>
+</html>
